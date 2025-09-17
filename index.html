@@ -308,16 +308,15 @@
 
       <h2 id="contacto-centrar" >Contacto</h2>
 
-      <form id="contactForm" > <!-- action="mailto:jesuspaye630@gmail.com" method="POST" enctype="text/plain" -->
+    <form action="https://formspree.io/f/mrbawjek" method="POST">
+      <input type="text" name="nombre" placeholder="Nombre" required>
+      <input type="email" name="email" placeholder="Correo" required>
+      <textarea name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
 
-        <input type="text" name="nombre" placeholder="Nombre" required />
-        <input type="email" name="correo" placeholder="Correo" required />
-        <textarea name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
-        <button type="submit">Enviar</button>
 
-      </form>
-
-      <a href="docs/C.V. JESUS BALTAZAR PAYE JUAREZ.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">Descargar CV</a>
+    <a href="docs/C.V. JESUS BALTAZAR PAYE JUAREZ.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">Descargar CV</a>
 
     </section>
   </main>
@@ -350,7 +349,7 @@
 <script>
   // Inicializar con tu Public Key (de tu dashboard EmailJS)
   (function(){
-    emailjs.init("TU_PUBLIC_KEY");
+    emailjs.init("lVwyk9GbJXjN4mcfD");
   })();
 
   // Enviar formulario con EmailJS
