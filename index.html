@@ -308,7 +308,7 @@
 
       <h2 id="contacto-centrar" >Contacto</h2>
 
-      <form id="contactForm" action="mailto:jesuspaye630@gmail.com" method="POST" enctype="text/plain">
+      <form id="contactForm" > <!-- action="mailto:jesuspaye630@gmail.com" method="POST" enctype="text/plain" -->
 
         <input type="text" name="nombre" placeholder="Nombre" required />
         <input type="email" name="correo" placeholder="Correo" required />
@@ -344,5 +344,29 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  // Inicializar con tu Public Key (de tu dashboard EmailJS)
+  (function(){
+    emailjs.init("TU_PUBLIC_KEY");
+  })();
+
+  // Enviar formulario con EmailJS
+  const contactForm = document.getElementById("contactForm");
+  contactForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm("service_j60ut1m", "TU_TEMPLATE_ID", this)
+      .then(function() {
+        alert("✅ Mensaje enviado con éxito, pronto me pondré en contacto.");
+        contactForm.reset();
+      }, function(error) {
+        alert("❌ Error al enviar: " + JSON.stringify(error));
+      });
+  });
+</script>
+
 </body>
 </html>
