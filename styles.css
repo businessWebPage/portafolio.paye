@@ -1,0 +1,758 @@
+/* === Reset ================================================================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #ffffff;                                    /* Color de TODO EL FONDO */
+  color: #333;                                            /* Color de TODO EL TEXTO */
+  transition: background 0.3s, color 0.3s;
+}
+
+/* === Navbar ================================================================================================ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #fff;                           /* Color de la barra del NAV */
+  border-bottom: 2px solid #000;            /* Línea de color del NAV */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;                                  /* Color de la barra de INICIO, SOBRE MÍ, CONOCIMIENTOS, PROYECTOS, CONTACTAME */
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #00bcd4;                                 /* Cambio de color de las letras de NAV al pasar el mouse */
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social a {
+  font-size: 1.2rem;
+  color: #000;                                  /* Color de las imagenes del NAV */
+  position: relative;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social a:hover {
+  transform: scale(1.2);
+  color: #00bcd4;                               /* Cambio de color de las IMAGENES de NAV al pasar el mouse */
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;                             /* Cambio de color de las IMAGENES de LAS LETRAS NAV al pasar el mouse */
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 3px 6px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+
+  display: none;  /* SE AGREGO SIRVE PARA NO MOSTRAR ------( QUITA LA BARRA LATERAL )------------- */
+}
+
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/* IMAGEN AL LADO IZQUIERDO DEL INICIO ============================================================================= */
+
+.presentacion-contenido {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* espacio entre la imagen y el texto */
+}
+
+.img-perfil {
+    align-items: center;
+    width: 500px;
+    height: 200px;
+    border-radius: 10%;              /* redonda */
+    object-fit: cover;
+    border: 3px solid cyan; /* borde alrededor */
+    text-align: center;
+}
+
+/* PARA MOVIL */
+/*En móvil (pantallas chicas) puedes hacer que la imagen quede arriba y el texto abajo con media query: */
+
+/* Responsive (imagen sigue al costado, solo se reduce tamaño) */
+@media (max-width: 768px) {
+  .presentacion-contenido {
+    flex-direction: row;            /* mantiene la imagen al costado */
+    justify-content: center;
+    text-align: center;             /* Centrar el texto del responsive donde dice JESUS B. PAYE J. */
+  }
+
+  .img-perfil {
+    width: 50px;                    /* más pequeña en móvil */
+    height: 50px;
+  }
+
+  .presentacion-contenido p {
+    font-size: 0.8rem;                    /* texto más compacto */
+  }
+}
+
+
+/* PARA CENTRAR TODO =========================================================================================*/
+
+.presentacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;                       /* ocupa toda la pantalla */
+  padding: 40px 20px;
+}
+
+.presentacion-contenido {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  max-width: 900px;
+  width: 100%;
+  text-align: center;                       /* centra texto */
+}
+
+.img-perfil {                               /* EDICIÓN DE LA IMAGE DE PERFIL */
+  width: 425px;
+  height: 225px;
+  border-radius: 5%;
+  object-fit: cover;
+  border: 3px solid rgb(7, 11, 11);       /* Color del borde de la imagen de perfil */
+  flex-shrink: 0;
+}
+
+.texto-presentacion h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.texto-presentacion p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.botones {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: cyan;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  background: #00e0e0;
+}
+
+/* 📱 Responsive ---------------------------------------------------------------  */
+@media (max-width: 768px) {
+  .presentacion-contenido {
+    flex-direction: column; /* apilar imagen y texto */
+    text-align: center;
+  }
+
+  .img-perfil {
+    width: 120px;
+    height: 120px;
+  }
+
+  .texto-presentacion h1 {
+    font-size: 1.5rem;
+  }
+
+  .texto-presentacion p {
+    font-size: 1rem;
+  }
+
+  .botones {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+}
+
+
+
+/* === Menú móvil ================================================================================================ */
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: #00bcd4;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 200px;
+  padding: 20px;
+}
+
+.mobile-menu a {
+  color: #000;
+  text-decoration: none;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+
+.mobile-menu {
+  position: fixed;
+  top: 58px;
+  right: -100%;                             /* escondido al inicio */
+  width: 48%;                               /* Ancho de la barra del menu */
+  height: 50vh;
+  background: var(--menu-bg, #cbe7e9);       /* #6feed9 <-- fondo oscuro DEL MENU */
+  border: 2px, #000;
+  color: #fff;                           
+  transition: right 0.4s ease;
+  z-index: 1000;
+  padding-top: 10px;                        /* espacio para el header */
+
+
+  display: flex;              /* activar flexbox */
+  justify-content: center;    /* centrar horizontal */
+  align-items: center;        /* centrar vertical */
+}
+
+.mobile-menu.active {
+  right: 0;                   /* se muestra */
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+
+  width: 100%;                /* que ocupe todo el ancho disponible LETRAS DEL MENU*/
+}
+
+.mobile-menu li {
+  margin: 1px 0;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: #000000;              /* Color de las letras de la barra del MENU */
+  font-size: 0.8rem;            /* Tamaño de letra de la barra del MENU */
+  transition: color 0.3s;
+
+  display: block;             /* asegura que ocupe todo el ancho del li */
+}
+
+.mobile-menu a:hover {
+  color: cyan; /* efecto hover */
+}
+
+
+/* === Secciones ================================================================================================ */
+.section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.btn, .btn-secondary {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn {
+  background: #00bcd4;                      /* Fondo de contactame */
+  color: #fff;                              /* Color de las letras de CONTACTAME */
+  
+}
+
+.btn:hover {
+  background: #0097a7;                      /* Cambio de color al pasar el mouse en CONTACTAME */
+}
+
+.btn-secondary {
+  background: #185be1;                         /* Fondo de color de DESCARGAR CV */
+  color: #ffffff;                            /* Color de las letras de DESCARGAR CV */
+}
+
+.btn-secondary:hover {
+  background: #000000;                         /* Fondo de color al pasar el mouse en DESCARGAR CV */
+}
+
+/* === Skills ================================================================================================ */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.skills img {
+  max-width: 80px;
+  margin: auto;
+  transition: transform 0.3s;
+}
+
+.skills img:hover {
+  transform: scale(1.2);
+}
+
+/* === Proyectos ============================================================================================= */
+.projects {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background:#00bcd4;                           /* Color de fondo de PROYECTOS */
+  color: #fff;                                  /* Color de letra de proyectos */
+  padding: 20px;                                  /* Tamaño de caja de los proyectos */
+  border-radius: 15px;                            /* Bordes de los proyectos */
+  transition: transform 0.3s ease;
+
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  max-width: 320px;
+  
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* Imagen dentro de la tarjeta */
+.card-img {
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.card-img img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.4s ease;
+}
+
+.card-img img:hover {
+  transform: scale(1.1);   /* zoom al pasar el mouse */
+}
+
+/* Título y descripción */
+.card h3 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.card p {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  color: #ccc;
+}
+
+/* Botones */
+.card-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-demo, .btn-repo {
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn-demo {
+  background: #00bcd4;
+  color: #fff;
+}
+
+.btn-demo:hover {
+  background: #0097a7;
+  transform: scale(1.05);
+}
+
+.btn-repo {
+  background: #444;
+  color: #fff;
+}
+
+.btn-repo:hover {
+  background: #222;
+  transform: scale(1.05);
+}
+
+
+
+
+/* === Contacto ================================================================================================ */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px auto;
+  max-width: 400px;
+}
+
+form input, form textarea {
+  padding: 10px;
+  border: 1px solid #000000;               /* Color del borde de CONTACTO */
+  border-radius: 10px;
+}
+
+form button {
+  padding: 10px;
+  background: #00bcd4;                  /* Color de fondo de ENVIAR */
+  border: none;
+  color: #fff;                          /* Color de letra de ENVIAR */
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #0edfcd;                   /* Cambio de color al pasar el mouse en ENVIAR */
+}
+
+#contacto h2 {
+  text-align: center;
+}
+
+
+/* === Footer ================================================================================================ */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+  color: #fff;
+}
+
+/* === Animaciones ================================================================================================ */
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* === Dark mode ============== ( COLOR OSCURO )========================================================================== */
+body.dark {
+  background: #121212;             /* CAMBIO DE COLOR DE FONDO DEL BODY  */
+  color: #f1f1f1;                 /* Cambio del color de las letras al momento de poner TEMA-OSCURO */
+}
+
+body.dark .navbar {
+  background: #1e1e1e;            /* Cambio de color de la barra del NAV / AL MOMENTO DE PONER TEMA-OSCURO */
+  border-bottom-color: #444;      /* Cambio de color de la linea de la barra del NAV / AL MOMENTO DE COLOCAR EL TEMA-OSCURO */
+}
+
+body.dark .social a {
+  color: #f1f1f1;                 /* Cambio de color de las IMAGENES del NAV / AL MOMENTO DE COLOCAR TEMA-OSCURO */
+}
+
+
+
+/* === Ajustes Dark Mode para el NAV ================================================================================== */
+body.dark .nav-links a {
+  color: #fff; /* letras del menú en blanco */
+}
+
+body.dark .nav-links a:hover {
+  color: cyan; /* color al pasar el mouse */
+}
+
+body.dark .mobile-menu {
+  background: #1e1e1e; /* fondo oscuro para el menú móvil */
+}
+
+body.dark .mobile-menu a {
+  color: #fff; /* letras blancas en menú móvil */
+}
+
+body.dark .mobile-menu a:hover {
+  color: cyan; /* hover en menú móvil */
+}
+
+body.dark .icons button,
+body.dark .icons a {
+  color: #fff; /* íconos del nav en blanco */
+}
+
+
+/* === Responsive desde 320px ========================================================================================== */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .mobile-menu {
+    display: none;
+  }
+  .mobile-menu.active {
+    display: flex;
+  }
+}
+
+html {
+  scroll-behavior: smooth; /* fallback */
+  scroll-padding-top: 70px; /* espacio para que no tape el header */
+}
+
+
+/* Activar menú hamburguesa en móviles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+
+  /* En responsive ocultamos el menú normal de PC */
+  .desktop-menu {
+    display: none;
+  }
+}
+
+/* Para centrar el texto de responsive CONTACTAME y donde dice DESCARVAR CV en la parte de INICIO =============================================*/
+/* Responsive: desde 320px hasta 768px */
+@media (max-width: 768px) {
+  .botones {
+    display: flex;
+    flex-direction: column;   /* apila los botones uno debajo del otro */
+    align-items: center;      /* centra horizontalmente */
+    justify-content: center;  /* centra verticalmente si hay más altura */
+    gap: 12px;                /* espacio entre botones */
+    width: 100%;
+  }
+
+  .botones .btn,
+  .botones .btn-secondary {
+    width: 100%;              /* ocupan todo el ancho posible */
+    max-width: 250px;         /* límite para que no se vean demasiado grandes */
+    text-align: center;       /* centra el texto dentro del botón */
+    margin: 0 auto;
+  }
+}
+
+
+/* Contenedor principal IMAGEN A LA IZQUIERDA , EN SOBRE MI -----------------------------------------------*/
+/* ------------------ SECCIÓN SOBRE MÍ ------------------ */
+.sobre-mi {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Título */
+.sobre-mi h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Contenedor de texto + imagen */
+.sobre-mi-contenido {
+  display: flex;
+  flex-direction: column; /* responsive por defecto */
+  align-items: center;
+  gap: 20px;
+}
+
+/* Texto */
+.texto-sobre-mi {
+  flex: 1;
+}
+
+.texto-sobre-mi p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* Imagen */
+.img-sobremi {
+  width: 300px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Responsive móviles y tablets */
+@media (max-width: 768px) {
+  .sobre-mi-contenido {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .img-sobremi {
+    width: 200px;
+    margin-top: 20px;
+  }
+}
+
+/* PC y laptops */
+@media (min-width: 769px) {
+  .sobre-mi-contenido {
+    flex-direction: row;                                /* texto a la izquierda, imagen a la derecha */
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .texto-sobre-mi {
+    flex: 1;
+    max-width: 575px;
+    margin: auto;
+
+    text-align: left;
+  }
+
+  .img-sobremi {
+    width: 300px;
+    margin: 0;
+  }
+}
+/* --CORREO ==== en el footer de color negro (jesuspaye630@gmail.com)===============================------ */
+
+.correo {
+  color: inherit;        /* hereda el color del texto del footer */
+  text-decoration: none; /* quita el subrayado */
+}
+
+.correo:hover {
+  color: #44d33c;        /* color cuando pasas el mouse */
+  text-decoration: dotted; /* opcional, si quieres subrayado al pasar */
+}
+
+
+/* PARA MODIFICAR LOS NOMBRES DE LAS IMAGENES DEL AREA DE CONOCIMIENTO ====================================== */
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.skill-item img {
+  max-width: 80px;                                /* Regular el tamaño de las imagenes */
+  transition: transform 0.3s;
+}
+
+.skill-item p {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: transform 0.3s, color 0.3s;
+}
+
+/* Animación al pasar el mouse: afecta a la imagen y al texto */
+.skill-item:hover img,
+.skill-item:hover p {
+  transform: scale(1.2);
+  color: #00bcd4;                               /* el texto cambia a celeste al pasar el mouse */
+}
+
+/* =====Columnas del conocimento para movil =============================================================================== */
+
+@media (max-width: 768px) {
+  .skills {
+    grid-template-columns: repeat(2, 1fr); /* En móvil, 2 columnas */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .skills {
+    grid-template-columns: repeat(3, 1fr); /* En tablets, 3 columnas */
+  }
+}
+
+/* ==================================================================================================================== */
+
+/* ==================================================================================================================== */
